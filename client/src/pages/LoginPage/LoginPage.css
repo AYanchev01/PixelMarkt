@@ -1,0 +1,126 @@
+.login-page {
+    display: flex;
+    flex-direction: column; /* Stack children vertically */
+    justify-content: flex-start; /* Align content to the top */
+    padding-top: 20px; /* Add some padding at the top */
+    background-color: #f2f2f2;
+    flex-grow: 1; /* Allow the page to grow as needed, but not beyond the content */
+}
+
+.login-container {
+    width: 100%;
+    max-width: 350px;
+    padding: 40px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    margin: auto; /* Center it in the viewport without extra space */
+}
+
+.login-form h2 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 10px;
+    margin-bottom: 30px;
+}
+
+.login-form p {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.login-form input {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* Added for consistent sizing */
+}
+
+.sign-in-btn {
+    width: 100%;
+    padding: 15px;
+    background-color: #0073b1;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+.forgot-password-btn {
+    background: none;
+    border: none;
+    color: #0073b1;
+    cursor: pointer;
+    display: block;
+    margin-bottom: 20px;
+}
+
+.separator {
+    text-align: center;
+    margin: 20px 0;
+    line-height: 0.1em;
+}
+
+.separator:before {
+    content: '';
+    display: inline-block;
+    vertical-align: middle;
+    width: 40%;
+    border-bottom: 1px solid #ccc;
+    margin-right: 10px;
+}
+
+.separator:after {
+    content: '';
+    display: inline-block;
+    vertical-align: middle;
+    width: 40%;
+    border-bottom: 1px solid #ccc;
+    margin-left: 10px;
+}
+
+.google-login-btn {
+    width: 100%;
+    padding: 15px;
+    /* background-color: #db4437; */
+    color: black;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.error-message {
+    color: red;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.alert-message {
+    color: red; /* Or any color that suits your design */
+    margin-top: 20px;
+    text-align: center;
+}
+
+.toggle-register-btn {
+    background: none;
+    border: none;
+    color: #0073b1; /* Use a color that matches your form's theme */
+    cursor: pointer;
+    padding: 10px;
+    margin-top: 20px; /* Space above the button */
+    font-size: 1em;
+    text-decoration: underline; /* Optional: if you want it to look like a link */
+}
+
+.toggle-register-btn:hover {
+    color: #0056b3; /* Slightly darker color on hover */
+}
+
+.register-heading {
+    margin-bottom: 30px;
+}
