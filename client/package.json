@@ -13,6 +13,7 @@
         "@types/react-router-dom": "^5.3.3",
         "dotenv": "^16.3.1",
         "firebase": "^10.7.1",
+        "firebase-admin": "^12.0.0",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
         "react-firebase-hooks": "^5.1.1",

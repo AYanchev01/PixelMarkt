@@ -6,6 +6,8 @@ import {
 } from 'firebase/auth'
 import { sendPasswordResetEmail } from 'firebase/auth'
 import { auth } from '../../firebaseConfig'
+import { doc, getDoc, setDoc } from 'firebase/firestore';
+import { db } from '../../firebaseConfig';
 
 interface LoginFormProps {
     onLoginSuccess: () => void
@@ -28,12 +30,26 @@ const LoginForm: React.FC<LoginFormProps> = ({ onLoginSuccess, onAlert }) => {
 
     const handleGoogleLogin = async () => {
         try {
-            await signInWithPopup(auth, new GoogleAuthProvider())
-            onLoginSuccess()
+            const userCredential = await signInWithPopup(auth, new GoogleAuthProvider());
+            const user = userCredential.user;
+
+            // Check if a user document exists
+            const userDocRef = doc(db, "users", user.uid);
+            const userDoc = await getDoc(userDocRef);
+
+            if (!userDoc.exists()) {
+                // Create a new user document if it doesn't exist
+                await setDoc(userDocRef, {
+                    email: user.email,
+                    isAdmin: false // Default to false
+                });
+            }
+
+            onLoginSuccess();
         } catch (error) {
-            if (error instanceof Error) onAlert(error.message)
+            if (error instanceof Error) onAlert(error.message);
         }
-    }
+    };
 
     const handleForgotPassword = async () => {
         if (email) {

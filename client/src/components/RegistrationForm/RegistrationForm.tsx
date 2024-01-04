@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import { createUserWithEmailAndPassword } from 'firebase/auth'
 import { auth } from '../../firebaseConfig'
+import { doc, setDoc } from 'firebase/firestore';
+import { db } from '../../firebaseConfig';
 
 interface RegistrationFormProps {
     onRegistrationSuccess: () => void
@@ -15,14 +17,21 @@ const RegistrationForm: React.FC<RegistrationFormProps> = ({
     const [password, setPassword] = useState('')
 
     const handleRegister = async (e: React.FormEvent) => {
-        e.preventDefault()
+        e.preventDefault();
         try {
-            await createUserWithEmailAndPassword(auth, email, password)
-            onRegistrationSuccess()
+            const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+            const user = userCredential.user;
+            
+            await setDoc(doc(db, "users", user.uid), {
+                email: user.email,
+                isAdmin: false
+            });
+
+            onRegistrationSuccess();
         } catch (error) {
-            if (error instanceof Error) onAlert(error.message)
+            if (error instanceof Error) onAlert(error.message);
         }
-    }
+    };
 
     return (
         <div className="login-form">
