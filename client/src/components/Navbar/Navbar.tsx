@@ -12,8 +12,10 @@ const Navbar: React.FC<NavbarProps> = ({ isAuthenticated }) => {
 
     const handleLogout = async () => {
         try {
-            const userConfirmation = window.confirm("Are you sure you want to log out?");
-            if (!userConfirmation) return;
+            const userConfirmation = window.confirm(
+                'Are you sure you want to log out?'
+            )
+            if (!userConfirmation) return
 
             await signOut(auth)
             // Optionally, handle any post-logout logic here
