@@ -57,13 +57,19 @@ async function addData() {
             name: 'RTX 3080',
             category: 'Graphics Cards',
             price: 699.99,
+            description:
+                'The GeForce RTX™ 3080 delivers the ultra performance that gamers crave, powered by Ampere—NVIDIA’s 2nd gen RTX architecture. It’s built with enhanced RT Cores and Tensor Cores, new streaming multiprocessors, and superfast G6X memory for an amazing gaming experience.',
             stock: 20,
+            stripePriceId: 'price_1OVLJVBDqOJUyBhUjscf36J3',
         },
         {
             name: 'Ryzen 7 5800X',
             category: 'Processors',
             price: 449.99,
+            description:
+                'CPU Manufacturer 	AMD\nCPU Model 	AMD Ryzen 7\nCPU Speed 	4.7 GHz\nCPU Socket 	Socket AM4',
             stock: 15,
+            stripePriceId: 'price_1OVLLdBDqOJUyBhU2RdF9ZIU',
         },
         // ... Add more products as needed ...
     ]
@@ -108,7 +114,9 @@ async function addData() {
                     categoryId: catRef.docs[0].id,
                     price: prod.price,
                     stock: prod.stock,
+                    description: prod.description,
                     image: imageUrl,
+                    stripePriceId: prod.stripePriceId,
                 })
             } else {
                 console.log(`Image not found for ${prod.name}`)

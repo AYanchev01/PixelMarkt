@@ -1,0 +1,117 @@
+/* CartPage.css */
+
+.cart-page {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 20px auto;
+}
+
+.cart-items,
+.checkout-form {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-width: 300px;
+    max-width: 45%;
+    margin: 10px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+    overflow: hidden; /* Prevents contents from overflowing */
+}
+
+.cart-item img {
+    width: 100%; /* Ensures the image takes the width of its parent */
+    max-width: 150px; /* Maximum width limit */
+    max-height: 150px; /* Maximum height limit */
+    object-fit: contain; /* Keeps the aspect ratio and shows the whole image */
+    margin-right: 10px;
+}
+
+.checkout-form h2 {
+    margin-bottom: 15px;
+}
+
+.checkout-form form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.checkout-form label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.checkout-form textarea,
+.checkout-form input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+.checkout-form button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.checkout-form button:hover {
+    background-color: #0056b3;
+}
+
+@media (max-width: 768px) {
+    .cart-page {
+        flex-direction: column;
+    }
+
+    .cart-items,
+    .checkout-form {
+        max-width: 100%;
+    }
+}
+.cart-item-container {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+    overflow: hidden;
+}
+
+.cart-item-image {
+    width: 200px; /* Set a fixed width for the image container */
+    height: 200px; /* Set a fixed height for the image container */
+    overflow: hidden; /* Prevents the image from overflowing its container */
+}
+
+.cart-item-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.cart-item-details {
+    flex-grow: 1; /* Allow the details to fill the remaining space */
+}
+
+.checkout-form {
+    padding-right: 40px;
+}
