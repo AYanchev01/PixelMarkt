@@ -12,8 +12,7 @@ import {
 } from 'firebase/firestore'
 import { useAuth } from '../../contexts/AuthContext'
 import './CartPage.css'
-import { useStripe, useElements, CardElement } from '@stripe/react-stripe-js'
-import { useNavigate } from 'react-router-dom'
+import { useStripe, useElements } from '@stripe/react-stripe-js'
 
 interface ProductDetail {
     name: string
@@ -33,7 +32,6 @@ const CartPage = () => {
     const [cartItems, setCartItems] = useState<CartItem[]>([])
     const [totalPrice, setTotalPrice] = useState<number>(0)
     const { currentUser } = useAuth()
-    const navigate = useNavigate()
     const stripe = useStripe()
     const elements = useElements()
 
@@ -94,7 +92,6 @@ const CartPage = () => {
 
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault()
-        console.log('handleSubmit started') // Debugging log
         if (!stripe || !elements || !currentUser) {
             console.error(
                 'Stripe.js has not loaded yet or user is not authenticated.'
@@ -102,55 +99,46 @@ const CartPage = () => {
             return
         }
 
+        // Filter out any cart items missing a Stripe Price ID
+        const validCartItems = cartItems.filter(
+            (item) => item.productDetails?.stripePriceId
+        )
+
         // Define the checkout session data
-        const checkoutSession = {
-            lineItems: cartItems.map((item) => ({
-                price: item.productDetails?.stripePriceId, // Replace with Stripe Price ID
-                quantity: item.quantity,
-            })),
-            successUrl: window.location.origin, // Replace with your success URL
-            cancelUrl: window.location.origin, // Replace with your cancel URL
-        }
-
+        const checkoutSessionRef = collection(
+            db,
+            'customers',
+            currentUser.uid,
+            'checkout_sessions'
+        )
         try {
-            const docRef = await addDoc(collection(db, 'checkout_sessions'), {
-                uid: currentUser.uid,
-                ...checkoutSession,
+            const docRef = await addDoc(checkoutSessionRef, {
+                line_items: validCartItems.map((item) => ({
+                    price: item.productDetails!.stripePriceId,
+                    quantity: item.quantity,
+                })),
+                success_url: window.location.origin,
+                cancel_url: window.location.origin,
+                mode: 'payment',
             })
-            console.log('Firestore write operation successful', docRef.id) // Debugging log
 
-            // Wait for the Stripe Extension to update the checkout session document
-            const unsubscribe = onSnapshot(
-                doc(db, 'checkout_sessions', docRef.id),
-                async (docSnapshot) => {
-                    console.log('onSnapshot triggered', docSnapshot.data()) // Debugging log
-                    const sessionData = docSnapshot.data()
-                    if (!sessionData) return
-                    console.log('sessionData exists', sessionData) // Debugging log
-
-                    const { error, sessionId } = sessionData
-                    if (error) {
-                        alert(`Error: ${error}`)
-                        return
-                    }
-
-                    console.log('Before Redirecting to Stripe Checkout')
-                    if (sessionId) {
-                        // Redirect to Stripe Checkout
-                        console.log('Redirecting to Stripe Checkout')
-                        const result = await stripe.redirectToCheckout({
-                            sessionId,
-                        })
-                        if (result.error) {
-                            alert(`Error: ${result.error.message}`)
-                        } else {
-                            alert('Payment successful')
-                            navigate('/')
-                        }
-                        unsubscribe() // Detach the listener
-                    }
+            // Listening for changes on the created document
+            const unsubscribe = onSnapshot(docRef, (docSnapshot) => {
+                const sessionData = docSnapshot.data()
+                if (sessionData && sessionData.url) {
+                    // Redirect to Stripe Checkout
+                    window.location.href = sessionData.url
+                    unsubscribe()
+                } else if (sessionData && sessionData.error) {
+                    // Handle errors
+                    console.error(
+                        'Error in checkout session:',
+                        sessionData.error
+                    )
+                    alert(`Error: ${sessionData.error.message}`)
+                    unsubscribe()
                 }
-            )
+            })
         } catch (error) {
             console.error('Error creating checkout session:', error)
             alert('Failed to initiate payment.')
@@ -184,16 +172,8 @@ const CartPage = () => {
                 <h2>Checkout</h2>
                 <form onSubmit={handleSubmit}>
                     <h3>Total Price: ${totalPrice.toFixed(2)}</h3>
-                    <div>
-                        <label htmlFor="address">Shipping Address:</label>
-                        <textarea id="address" required />
-                    </div>
-                    <div>
-                        <label htmlFor="cardDetails">Card Details:</label>
-                        <CardElement options={{ hidePostalCode: true }} />
-                    </div>
                     <button type="submit" disabled={!stripe}>
-                        Pay
+                        Continue to payment
                     </button>
                 </form>
             </div>
