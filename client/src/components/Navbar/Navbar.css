@@ -13,11 +13,21 @@
     margin: 0;
 }
 
+.home-link {
+    color: #ffffff;
+    padding: 8px 16px;
+    font-size: 1em;
+    cursor: pointer;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-left: 5px;
+}
+
 .nav-link {
     background-color: #ffffff;
     color: #344955;
     border: 1px solid #dddddd;
-    padding: 8px 16px;
+    padding: 6px 16px;
     font-size: 1em;
     font-weight: bold;
     cursor: pointer;
@@ -44,7 +54,7 @@
     background-color: #ffffff;
     color: #344955;
     border: 1px solid #dddddd;
-    padding: 9px 16px;
+    padding: 7px 16px;
     font-size: 1em;
     font-weight: bold;
     cursor: pointer;
@@ -64,4 +74,32 @@
     background-color: #e8e8e8d7;
     border-color: #cccccca5;
     color: #344955;
+}
+
+.navbar-search-bar {
+    width: 30%;
+    padding: 5px 16px;
+    border: 1px solid #dddddd;
+    font-size: 1em;
+    background-color: #ffffff;
+    color: #344955;
+    border-radius: 5px;
+    margin: 0 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.navbar-search-bar:focus {
+    outline: none;
+    border-color: #344955;
+    box-shadow: 0 2px 4px rgba(52, 73, 85, 0.25);
+}
+
+.navbar-search-bar::placeholder {
+    color: #344955;
+    opacity: 0.7;
+}
+
+.navbar-search-bar:hover {
+    border-color: #cccccca5;
 }

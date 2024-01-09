@@ -11,7 +11,11 @@ interface Product {
     image: string
 }
 
-const HomePage = () => {
+interface HomePageProps {
+    searchQuery: string;
+}
+
+const HomePage: React.FC<HomePageProps> = ({ searchQuery }) => {
     const [products, setProducts] = useState<Product[]>([])
     const [loading, setLoading] = useState(true)
 
@@ -30,17 +34,21 @@ const HomePage = () => {
         fetchProducts()
     }, [])
 
+    const filteredProducts = products.filter((product) =>
+        product.name.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+
     if (loading) {
-        return <div>Loading products...</div>
+        return <div>Loading products...</div>;
     }
 
     return (
         <div className="home-page">
-            {products.map((product) => (
+            {filteredProducts.map((product) => (
                 <ProductCard key={product.id} product={product} />
             ))}
         </div>
-    )
+    );
 }
 
 export default HomePage

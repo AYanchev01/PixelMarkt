@@ -5,9 +5,10 @@ import './Navbar.css'
 
 interface NavbarProps {
     isAuthenticated: boolean
+    onSearchChange: (searchTerm: string) => void;
 }
 
-const Navbar: React.FC<NavbarProps> = ({ isAuthenticated }) => {
+const Navbar: React.FC<NavbarProps> = ({ isAuthenticated, onSearchChange }) => {
     const navigate = useNavigate()
 
     const handleLogout = async () => {
@@ -28,7 +29,18 @@ const Navbar: React.FC<NavbarProps> = ({ isAuthenticated }) => {
 
     return (
         <nav className="navbar">
-            <span className="website-name">Pixel Markt</span>
+            <span className="website-name">
+                <Link to="/" className="home-link">
+                    Pixel Markt
+                </Link>                
+            </span>
+            {/* Search Input */}
+            <input
+                type="text"
+                placeholder="Search products..."
+                className="navbar-search-bar"
+                onChange={(e) => onSearchChange(e.target.value)}
+            />
             <div className="button-container">
                 {isAuthenticated ? (
                     <>
