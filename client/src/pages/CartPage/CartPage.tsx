@@ -10,6 +10,7 @@ import {
     addDoc,
     onSnapshot,
     updateDoc,
+    Unsubscribe,
 } from 'firebase/firestore'
 import { useAuth } from '../../contexts/AuthContext'
 import './CartPage.css'
@@ -169,6 +170,12 @@ const CartPage = () => {
                 cancel_url: window.location.origin,
                 mode: 'payment',
             })
+
+            // Clear the cart items immediately after creating the checkout session
+            const cartRef = doc(db, 'carts', currentUser.uid)
+            await updateDoc(cartRef, { items: [] })
+            setCartItems([]) // Clear the local state
+            setTotalPrice(0) // Reset the total price
 
             // Listening for changes on the created document
             const unsubscribe = onSnapshot(docRef, (docSnapshot) => {

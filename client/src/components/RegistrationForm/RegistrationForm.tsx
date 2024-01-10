@@ -31,6 +31,7 @@ const RegistrationForm: React.FC<RegistrationFormProps> = ({
                 isAdmin: false,
             })
 
+            alert('Registration successful!')
             onRegistrationSuccess()
         } catch (error) {
             if (error instanceof Error) onAlert(error.message)
