@@ -156,7 +156,7 @@ const CartPage = () => {
         // Define the checkout session data
         const checkoutSessionRef = collection(
             db,
-            'customers',
+            'users',
             currentUser.uid,
             'checkout_sessions'
         )
