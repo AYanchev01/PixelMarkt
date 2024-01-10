@@ -5,7 +5,7 @@ import './Navbar.css'
 
 interface NavbarProps {
     isAuthenticated: boolean
-    onSearchChange: (searchTerm: string) => void;
+    onSearchChange: (searchTerm: string) => void
 }
 
 const Navbar: React.FC<NavbarProps> = ({ isAuthenticated, onSearchChange }) => {
@@ -32,7 +32,7 @@ const Navbar: React.FC<NavbarProps> = ({ isAuthenticated, onSearchChange }) => {
             <span className="website-name">
                 <Link to="/" className="home-link">
                     Pixel Markt
-                </Link>                
+                </Link>
             </span>
             {/* Search Input */}
             <input

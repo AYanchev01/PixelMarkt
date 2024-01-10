@@ -123,7 +123,7 @@ async function addData() {
             stock: 5,
             stripePriceId: 'price_1OVMFdBDqOJUyBhU8qMn4SgK',
         },
-    ];
+    ]
     // Additional Products for Processors
     const processorsProducts = [
         {
@@ -207,7 +207,7 @@ async function addData() {
             stock: 5,
             stripePriceId: 'price_1OVMFdBDqOJUyBhU8qMn4SgK',
         },
-    ];
+    ]
     // Additional Products for Smartphones
     const smartphonesProducts = [
         {
@@ -215,7 +215,7 @@ async function addData() {
             category: 'Smartphones',
             price: 999.99,
             description:
-                'The iPhone 13 Pro is Apple\'s flagship smartphone with a stunning display and powerful features.',
+                "The iPhone 13 Pro is Apple's flagship smartphone with a stunning display and powerful features.",
             stock: 30,
             stripePriceId: 'price_1OVMFdBDqOJUyBhU8qMn4SgK',
         },
@@ -282,7 +282,7 @@ async function addData() {
             stock: 20,
             stripePriceId: 'price_1OVMFdBDqOJUyBhU8qMn4SgK',
         },
-    ];
+    ]
     // Additional Products for Headphones
     const headphonesProducts = [
         {
@@ -357,7 +357,7 @@ async function addData() {
             stock: 35,
             stripePriceId: 'price_1OVMFdBDqOJUyBhU8qMn4SgK',
         },
-    ];
+    ]
 
     // Products
     const products = [

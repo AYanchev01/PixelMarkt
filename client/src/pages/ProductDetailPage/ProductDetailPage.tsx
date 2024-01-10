@@ -34,54 +34,64 @@ const ProductDetailPage = () => {
 
     const handleAddToCart = async () => {
         if (!currentUser) {
-            alert('Please login to add items to the cart');
-            return;
+            alert('Please login to add items to the cart')
+            return
         }
 
         // Check if enough items are in stock
         if (quantity > product.stock) {
-            alert(`Sorry, only ${product.stock} items left in stock.`);
-            return;
+            alert(`Sorry, only ${product.stock} items left in stock.`)
+            return
         }
 
         try {
-            const cartRef = doc(db, 'carts', currentUser.uid);
-            const cartSnap = await getDoc(cartRef);
+            const cartRef = doc(db, 'carts', currentUser.uid)
+            const cartSnap = await getDoc(cartRef)
 
             if (cartSnap.exists()) {
-                const cartData = cartSnap.data();
-                let itemInCart = cartData.items.find((item: { productId: any }) => item.productId === product.id);
-                let updatedItems = [];
+                const cartData = cartSnap.data()
+                let itemInCart = cartData.items.find(
+                    (item: { productId: any }) => item.productId === product.id
+                )
+                let updatedItems = []
 
                 if (itemInCart) {
-                    const newQuantity = itemInCart.quantity + quantity;
+                    const newQuantity = itemInCart.quantity + quantity
                     if (newQuantity > product.stock) {
-                        alert(`Sorry, adding this quantity will exceed stock. Only ${product.stock - itemInCart.quantity} more available.`);
-                        return;
+                        alert(
+                            `Sorry, adding this quantity will exceed stock. Only ${
+                                product.stock - itemInCart.quantity
+                            } more available.`
+                        )
+                        return
                     }
 
-                    updatedItems = cartData.items.map((item: { productId: any }) => 
-                        item.productId === product.id 
-                            ? { ...item, quantity: newQuantity }
-                            : item
-                    );
+                    updatedItems = cartData.items.map(
+                        (item: { productId: any }) =>
+                            item.productId === product.id
+                                ? { ...item, quantity: newQuantity }
+                                : item
+                    )
                 } else {
-                    updatedItems = [...cartData.items, { productId: product.id, quantity }];
+                    updatedItems = [
+                        ...cartData.items,
+                        { productId: product.id, quantity },
+                    ]
                 }
 
-                await updateDoc(cartRef, { items: updatedItems });
+                await updateDoc(cartRef, { items: updatedItems })
             } else {
                 await setDoc(cartRef, {
                     userId: currentUser.uid,
                     items: [{ productId: product.id, quantity }],
-                });
+                })
             }
-            alert('Product added to cart');
+            alert('Product added to cart')
         } catch (error) {
-            console.error('Error adding to cart:', error);
-            alert('Error adding to cart');
+            console.error('Error adding to cart:', error)
+            alert('Error adding to cart')
         }
-    };
+    }
 
     const handleCheckout = async () => {
         await handleAddToCart()

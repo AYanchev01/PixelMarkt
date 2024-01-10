@@ -39,71 +39,82 @@ const CartPage = () => {
     const handleRemoveFromCart = async (productIdToRemove: string) => {
         if (!currentUser) {
             console.error('User is not authenticated.')
-            return;
+            return
         }
 
         try {
-            const cartRef = doc(db, 'carts', currentUser.uid);
-            const cartSnap = await getDoc(cartRef);
+            const cartRef = doc(db, 'carts', currentUser.uid)
+            const cartSnap = await getDoc(cartRef)
 
             if (cartSnap.exists()) {
-                const currentItems = cartSnap.data().items;
-                const updatedItems = currentItems.filter((item: { productId: string }) => item.productId !== productIdToRemove);
+                const currentItems = cartSnap.data().items
+                const updatedItems = currentItems.filter(
+                    (item: { productId: string }) =>
+                        item.productId !== productIdToRemove
+                )
 
-                await updateDoc(cartRef, { items: updatedItems });
+                await updateDoc(cartRef, { items: updatedItems })
 
                 // Update local state to reflect the change
-                setCartItems(cartItems.filter(item => item.productId !== productIdToRemove));
-                calculateTotalPrice(updatedItems);
+                setCartItems(
+                    cartItems.filter(
+                        (item) => item.productId !== productIdToRemove
+                    )
+                )
+                calculateTotalPrice(updatedItems)
             }
         } catch (error) {
-            console.error('Error removing item from cart:', error);
-            alert('Error removing item from cart');
+            console.error('Error removing item from cart:', error)
+            alert('Error removing item from cart')
         }
-    };
+    }
 
     // Function to calculate total price
     const calculateTotalPrice = (items: CartItem[]) => {
         const total = items.reduce(
-            (acc, item) => acc + (item.productDetails?.price || 0) * item.quantity, 0
-        );
-        setTotalPrice(total);
-    };
+            (acc, item) =>
+                acc + (item.productDetails?.price || 0) * item.quantity,
+            0
+        )
+        setTotalPrice(total)
+    }
 
     useEffect(() => {
         const fetchCartItems = async () => {
-            if (!currentUser) return; // Ensure user is logged in
+            if (!currentUser) return // Ensure user is logged in
 
-            const cartRef = doc(db, 'carts', currentUser.uid);
-            const cartSnap = await getDoc(cartRef);
+            const cartRef = doc(db, 'carts', currentUser.uid)
+            const cartSnap = await getDoc(cartRef)
 
             if (cartSnap.exists() && cartSnap.data().items.length > 0) {
-                const cartData = cartSnap.data().items;
+                const cartData = cartSnap.data().items
                 const productIds = cartData.map(
                     (item: { productId: string }) => item.productId
-                );
+                )
 
                 // Fetch product details for each item in the cart
-                const productsCollection = collection(db, 'products');
+                const productsCollection = collection(db, 'products')
                 const productsQuery = query(
                     productsCollection,
                     where('__name__', 'in', productIds)
-                );
-                const productSnapshots = await getDocs(productsQuery);
+                )
+                const productSnapshots = await getDocs(productsQuery)
 
                 const detailedCartItems = cartData.map(
                     (item: { productId: string; quantity: number }) => {
                         const productDoc = productSnapshots.docs.find(
                             (doc) => doc.id === item.productId
-                        );
+                        )
                         return {
                             ...item,
-                            productDetails: productDoc ? productDoc.data() : null,
-                        };
+                            productDetails: productDoc
+                                ? productDoc.data()
+                                : null,
+                        }
                     }
-                );
+                )
 
-                setCartItems(detailedCartItems);
+                setCartItems(detailedCartItems)
 
                 // Calculate the total price
                 const total = detailedCartItems.reduce(
@@ -111,18 +122,18 @@ const CartPage = () => {
                         return (
                             acc +
                             (item.productDetails?.price || 0) * item.quantity
-                        );
+                        )
                     },
                     0
-                );
+                )
 
-                setTotalPrice(total);
+                setTotalPrice(total)
             } else {
                 // Handle the case when the cart is empty
-                setCartItems([]);
-                setTotalPrice(0);
+                setCartItems([])
+                setTotalPrice(0)
             }
-        };
+        }
 
         fetchCartItems()
     }, [currentUser])
@@ -201,7 +212,10 @@ const CartPage = () => {
                             <p>Price: ${item.productDetails?.price}</p>
                             {/* Add more product information as needed */}
                         </div>
-                        <button onClick={() => handleRemoveFromCart(item.productId)} className="remove-from-cart">
+                        <button
+                            onClick={() => handleRemoveFromCart(item.productId)}
+                            className="remove-from-cart"
+                        >
                             Remove from Cart
                         </button>
                     </div>

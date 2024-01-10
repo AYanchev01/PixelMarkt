@@ -15,33 +15,38 @@ import { Elements } from '@stripe/react-stripe-js'
 import { stripePromise } from './stripeConfig'
 
 const App = () => {
-    const [isAuthenticated, setIsAuthenticated] = useState(false);
-    const [searchQuery, setSearchQuery] = useState('');
+    const [isAuthenticated, setIsAuthenticated] = useState(false)
+    const [searchQuery, setSearchQuery] = useState('')
 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (user) => {
-            setIsAuthenticated(!!user);
-        });
+            setIsAuthenticated(!!user)
+        })
 
-        return () => unsubscribe();
-    }, []);
+        return () => unsubscribe()
+    }, [])
 
     return (
         <Elements stripe={stripePromise}>
             <AuthProvider>
                 <Router>
                     <div className="App">
-                        <Navbar 
-                            isAuthenticated={isAuthenticated} 
+                        <Navbar
+                            isAuthenticated={isAuthenticated}
                             onSearchChange={setSearchQuery}
                         />
                         <div className="content">
                             <Routes>
-                                <Route 
-                                    path="/" 
-                                    element={<HomePage searchQuery={searchQuery} />}
+                                <Route
+                                    path="/"
+                                    element={
+                                        <HomePage searchQuery={searchQuery} />
+                                    }
                                 />
-                                <Route path="/product/:productId" element={<ProductDetailPage />} />
+                                <Route
+                                    path="/product/:productId"
+                                    element={<ProductDetailPage />}
+                                />
                                 <Route path="/login" element={<LoginPage />} />
                                 <Route path="/cart" element={<CartPage />} />
                                 {/* <Route path="/profile" element={<UserProfilePage />} /> */}
@@ -52,7 +57,7 @@ const App = () => {
                 </Router>
             </AuthProvider>
         </Elements>
-    );
-};
+    )
+}
 
 export default App

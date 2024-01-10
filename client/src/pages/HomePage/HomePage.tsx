@@ -12,7 +12,7 @@ interface Product {
 }
 
 interface HomePageProps {
-    searchQuery: string;
+    searchQuery: string
 }
 
 const HomePage: React.FC<HomePageProps> = ({ searchQuery }) => {
@@ -36,10 +36,10 @@ const HomePage: React.FC<HomePageProps> = ({ searchQuery }) => {
 
     const filteredProducts = products.filter((product) =>
         product.name.toLowerCase().includes(searchQuery.toLowerCase())
-    );
+    )
 
     if (loading) {
-        return <div>Loading products...</div>;
+        return <div>Loading products...</div>
     }
 
     return (
@@ -48,7 +48,7 @@ const HomePage: React.FC<HomePageProps> = ({ searchQuery }) => {
                 <ProductCard key={product.id} product={product} />
             ))}
         </div>
-    );
+    )
 }
 
 export default HomePage
