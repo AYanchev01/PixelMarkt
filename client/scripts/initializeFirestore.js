@@ -395,7 +395,7 @@ async function addData() {
             .get()
         if (!catRef.empty) {
             const imageName = prod.name.replace(/\s/g, '_') + '.jpg' // Assuming image name matches product name
-            const imagePath = path.join(__dirname, '../src/assets', imageName)
+            const imagePath = path.join(__dirname, './assets', imageName)
 
             if (fs.existsSync(imagePath)) {
                 const imageUrl = await uploadImageAndGetURL(
