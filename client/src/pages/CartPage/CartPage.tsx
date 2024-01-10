@@ -171,18 +171,19 @@ const CartPage = () => {
                 mode: 'payment',
             })
 
-            // Clear the cart items immediately after creating the checkout session
-            const cartRef = doc(db, 'carts', currentUser.uid)
-            await updateDoc(cartRef, { items: [] })
-            setCartItems([]) // Clear the local state
-            setTotalPrice(0) // Reset the total price
-
             // Listening for changes on the created document
-            const unsubscribe = onSnapshot(docRef, (docSnapshot) => {
+            const unsubscribe = onSnapshot(docRef, async (docSnapshot) => {
                 const sessionData = docSnapshot.data()
                 if (sessionData && sessionData.url) {
                     // Redirect to Stripe Checkout
                     window.location.href = sessionData.url
+
+                    // Clear the cart items immediately after creating the checkout session
+                    const cartRef = doc(db, 'carts', currentUser.uid)
+                    await updateDoc(cartRef, { items: [] })
+                    setCartItems([])
+                    setTotalPrice(0)
+
                     unsubscribe()
                 } else if (sessionData && sessionData.error) {
                     // Handle errors
