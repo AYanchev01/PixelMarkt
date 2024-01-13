@@ -8,7 +8,7 @@ interface Product {
     id: string
     name: string
     price: number
-    image: string
+    imageUrl: string
 }
 
 interface HomePageProps {

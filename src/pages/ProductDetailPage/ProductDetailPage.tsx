@@ -105,7 +105,7 @@ const ProductDetailPage = () => {
     return (
         <div className="product-detail-container">
             <div className="product-image">
-                {product && <img src={product.image} alt={product.name} />}
+                {product && <img src={product.imageUrl} alt={product.name} />}
             </div>
             <div className="product-info">
                 {product && (

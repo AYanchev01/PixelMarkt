@@ -28,7 +28,6 @@ const RegistrationForm: React.FC<RegistrationFormProps> = ({
 
             await setDoc(doc(db, 'users', user.uid), {
                 email: user.email,
-                isAdmin: false,
             })
 
             alert('Registration successful!')

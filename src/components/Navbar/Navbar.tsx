@@ -5,10 +5,15 @@ import './Navbar.css'
 
 interface NavbarProps {
     isAuthenticated: boolean
+    isAdmin: boolean
     onSearchChange: (searchTerm: string) => void
 }
 
-const Navbar: React.FC<NavbarProps> = ({ isAuthenticated, onSearchChange }) => {
+const Navbar: React.FC<NavbarProps> = ({
+    isAuthenticated,
+    isAdmin,
+    onSearchChange,
+}) => {
     const navigate = useNavigate()
 
     const handleLogout = async () => {
@@ -44,6 +49,11 @@ const Navbar: React.FC<NavbarProps> = ({ isAuthenticated, onSearchChange }) => {
             <div className="button-container">
                 {isAuthenticated ? (
                     <>
+                        {isAdmin && (
+                            <Link to="/admin" className="nav-link">
+                                Admin
+                            </Link>
+                        )}
                         <Link to="/cart" className="nav-link">
                             Cart
                         </Link>

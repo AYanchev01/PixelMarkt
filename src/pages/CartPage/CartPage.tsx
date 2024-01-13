@@ -19,7 +19,7 @@ import { useStripe, useElements } from '@stripe/react-stripe-js'
 interface ProductDetail {
     name: string
     price: number
-    image: string
+    imageUrl: string
     description: string
     stripePriceId: string
 }
@@ -210,7 +210,7 @@ const CartPage = () => {
                     <div key={index} className="cart-item-container">
                         <div className="cart-item-image">
                             <img
-                                src={item.productDetails?.image}
+                                src={item.productDetails?.imageUrl}
                                 alt={item.productDetails?.name}
                             />
                         </div>

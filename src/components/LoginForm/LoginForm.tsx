@@ -44,7 +44,6 @@ const LoginForm: React.FC<LoginFormProps> = ({ onLoginSuccess, onAlert }) => {
                 // Create a new user document if it doesn't exist
                 await setDoc(userDocRef, {
                     email: user.email,
-                    isAdmin: false, // Default to false
                 })
             }
 

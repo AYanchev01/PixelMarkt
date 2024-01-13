@@ -7,7 +7,7 @@ interface ProductCardProps {
         id: string
         name: string
         price: number
-        image: string
+        imageUrl: string
     }
 }
 
@@ -20,7 +20,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
 
     return (
         <div className="product-card" onClick={handleClick}>
-            <img src={product.image} alt={product.name} />
+            <img src={product.imageUrl} alt={product.name} />
             <h3>{product.name}</h3>
             <p>${product.price}</p>
         </div>

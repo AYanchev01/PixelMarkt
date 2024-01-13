@@ -408,7 +408,7 @@ async function addData() {
                     price: prod.price,
                     stock: prod.stock,
                     description: prod.description,
-                    image: imageUrl,
+                    imageUrl: imageUrl,
                     stripePriceId: prod.stripePriceId,
                 })
             } else {

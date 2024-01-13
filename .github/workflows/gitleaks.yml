@@ -3,11 +3,11 @@ name: Gitleaks
 on: [push, workflow_dispatch]
 
 jobs:
-  gitleaks:
-    runs-on: ubuntu-latest
-    steps:
-    - name: Checkout
-      uses: actions/checkout@v3
+    gitleaks:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v3
 
-    - name: Gitleaks
-      uses: zricethezav/gitleaks-action@v2
+            - name: Gitleaks
+              uses: zricethezav/gitleaks-action@v2
