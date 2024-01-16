@@ -58,7 +58,7 @@ async function addData() {
             description:
                 'The GeForce GTX 1660 Ti is a powerful graphics card that offers great performance for gaming and content creation.',
             stock: 25,
-            stripePriceId: 'price_1OVMFdBDqOJUyBhU8qMn4SgK',
+            stripePriceId: 'price_1OZKvGBDqOJUyBhUy3pNF2pW',
         },
         {
             name: 'RX 6900 XT',
@@ -67,7 +67,7 @@ async function addData() {
             description:
                 'The AMD Radeon RX 6900 XT is a high-end graphics card designed for gamers and enthusiasts.',
             stock: 10,
-            stripePriceId: 'price_1OVMFdBDqOJUyBhU8qMn4SgK',
+            stripePriceId: 'price_1OZKvxBDqOJUyBhUlwkzIFXa',
         },
         {
             name: 'GTX 3060',
@@ -76,7 +76,7 @@ async function addData() {
             description:
                 'The GeForce GTX 3060 is a mid-range graphics card that offers excellent performance for budget-conscious gamers.',
             stock: 30,
-            stripePriceId: 'price_1OVMFdBDqOJUyBhU8qMn4SgK',
+            stripePriceId: 'price_1OZKwSBDqOJUyBhU4MmsSs5j',
         },
         {
             name: 'RTX 3070 Ti',
@@ -85,7 +85,7 @@ async function addData() {
             description:
                 'The GeForce RTX 3070 Ti is a high-performance graphics card with ray tracing capabilities for realistic gaming experiences.',
             stock: 20,
-            stripePriceId: 'price_1OVMFdBDqOJUyBhU8qMn4SgK',
+            stripePriceId: 'price_1OZKwyBDqOJUyBhUZxLt0fYL',
         },
         {
             name: 'RX 6700 XT',
@@ -94,7 +94,7 @@ async function addData() {
             description:
                 'The AMD Radeon RX 6700 XT is a gaming-oriented graphics card with excellent performance at 1080p and 1440p resolutions.',
             stock: 15,
-            stripePriceId: 'price_1OVMFdBDqOJUyBhU8qMn4SgK',
+            stripePriceId: 'price_1OZKxKBDqOJUyBhUMtjr1FRp',
         },
         {
             name: 'GTX 1650 Super',
@@ -103,7 +103,7 @@ async function addData() {
             description:
                 'The GeForce GTX 1650 Super is an entry-level graphics card that offers good performance for budget gaming PCs.',
             stock: 40,
-            stripePriceId: 'price_1OVMFdBDqOJUyBhU8qMn4SgK',
+            stripePriceId: 'price_1OZKyCBDqOJUyBhU8mjL5VTd',
         },
         {
             name: 'RX 6800',
@@ -112,7 +112,7 @@ async function addData() {
             description:
                 'The AMD Radeon RX 6800 is a high-end graphics card designed for 4K gaming and content creation.',
             stock: 10,
-            stripePriceId: 'price_1OVMFdBDqOJUyBhU8qMn4SgK',
+            stripePriceId: 'price_1OZKyXBDqOJUyBhUCHITsx7N',
         },
         {
             name: 'GTX 3080 Ti',
@@ -121,7 +121,7 @@ async function addData() {
             description:
                 'The GeForce GTX 3080 Ti is a flagship graphics card with incredible gaming and ray tracing performance.',
             stock: 5,
-            stripePriceId: 'price_1OVMFdBDqOJUyBhU8qMn4SgK',
+            stripePriceId: 'price_1OZKyvBDqOJUyBhUNJ9LXjDT',
         },
     ]
     // Additional Products for Processors
@@ -142,7 +142,7 @@ async function addData() {
             description:
                 'The Intel Core i9-10900K is a high-performance CPU for gaming and multitasking.',
             stock: 20,
-            stripePriceId: 'price_1OVMFdBDqOJUyBhU8qMn4SgK',
+            stripePriceId: 'price_1OZKzTBDqOJUyBhUgoN8jDZP',
         },
         {
             name: 'AMD Ryzen 9 5950X',
@@ -151,7 +151,7 @@ async function addData() {
             description:
                 'The AMD Ryzen 9 5950X is a top-of-the-line CPU with excellent performance and multitasking capabilities.',
             stock: 15,
-            stripePriceId: 'price_1OVMFdBDqOJUyBhU8qMn4SgK',
+            stripePriceId: 'price_1OZL05BDqOJUyBhUWXvgP35T',
         },
         {
             name: 'Intel Core i5-11600K',
@@ -160,7 +160,7 @@ async function addData() {
             description:
                 'The Intel Core i5-11600K is a mid-range CPU with strong gaming performance and overclocking potential.',
             stock: 25,
-            stripePriceId: 'price_1OVMFdBDqOJUyBhU8qMn4SgK',
+            stripePriceId: 'price_1OZL0RBDqOJUyBhUJJQJEfdz',
         },
         {
             name: 'AMD Ryzen 7 5800X',
@@ -169,7 +169,7 @@ async function addData() {
             description:
                 'The AMD Ryzen 7 5800X is a high-performance CPU designed for gaming and content creation.',
             stock: 20,
-            stripePriceId: 'price_1OVMFdBDqOJUyBhU8qMn4SgK',
+            stripePriceId: 'price_1OZL0sBDqOJUyBhUmhsmhNLe',
         },
         {
             name: 'Intel Core i3-10100',
@@ -178,7 +178,7 @@ async function addData() {
             description:
                 'The Intel Core i3-10100 is an entry-level CPU suitable for budget gaming and office tasks.',
             stock: 30,
-            stripePriceId: 'price_1OVMFdBDqOJUyBhU8qMn4SgK',
+            stripePriceId: 'price_1OZL1GBDqOJUyBhUlac9chUQ',
         },
         {
             name: 'AMD Ryzen 5 5600X',
@@ -187,7 +187,7 @@ async function addData() {
             description:
                 'The AMD Ryzen 5 5600X is a mid-range CPU with excellent single-threaded performance.',
             stock: 25,
-            stripePriceId: 'price_1OVMFdBDqOJUyBhU8qMn4SgK',
+            stripePriceId: 'price_1OZL1aBDqOJUyBhUT9pFjyKw',
         },
         {
             name: 'Intel Core i7-11700K',
@@ -196,7 +196,7 @@ async function addData() {
             description:
                 'The Intel Core i7-11700K is a high-performance CPU with 8 cores and strong gaming performance.',
             stock: 15,
-            stripePriceId: 'price_1OVMFdBDqOJUyBhU8qMn4SgK',
+            stripePriceId: 'price_1OZL1wBDqOJUyBhU5ItGnq6i',
         },
         {
             name: 'AMD Ryzen Threadripper 3990X',
@@ -205,7 +205,7 @@ async function addData() {
             description:
                 'The AMD Ryzen Threadripper 3990X is a high-end desktop CPU with 64 cores and exceptional multi-threaded performance.',
             stock: 5,
-            stripePriceId: 'price_1OVMFdBDqOJUyBhU8qMn4SgK',
+            stripePriceId: 'price_1OZL2JBDqOJUyBhUG09aZ826',
         },
     ]
     // Additional Products for Smartphones
@@ -217,7 +217,7 @@ async function addData() {
             description:
                 "The iPhone 13 Pro is Apple's flagship smartphone with a stunning display and powerful features.",
             stock: 30,
-            stripePriceId: 'price_1OVMFdBDqOJUyBhU8qMn4SgK',
+            stripePriceId: 'price_1OZL2vBDqOJUyBhUnrLTtD2e',
         },
         {
             name: 'Samsung Galaxy S21 Ultra',
@@ -226,7 +226,7 @@ async function addData() {
             description:
                 'The Samsung Galaxy S21 Ultra is a premium Android smartphone with a versatile camera system.',
             stock: 25,
-            stripePriceId: 'price_1OVMFdBDqOJUyBhU8qMn4SgK',
+            stripePriceId: 'price_1OZL3KBDqOJUyBhU1BP0Ymlf',
         },
         {
             name: 'Google Pixel 6 Pro',
@@ -235,7 +235,7 @@ async function addData() {
             description:
                 'The Google Pixel 6 Pro offers a pure Android experience and impressive camera capabilities.',
             stock: 20,
-            stripePriceId: 'price_1OVMFdBDqOJUyBhU8qMn4SgK',
+            stripePriceId: 'price_1OZL3dBDqOJUyBhUu4UKA8pP',
         },
         {
             name: 'OnePlus 9 Pro',
@@ -244,7 +244,7 @@ async function addData() {
             description:
                 'The OnePlus 9 Pro is known for its fast performance and clean OxygenOS user interface.',
             stock: 15,
-            stripePriceId: 'price_1OVMFdBDqOJUyBhU8qMn4SgK',
+            stripePriceId: 'price_1OZL41BDqOJUyBhUwD4Ahvva',
         },
         {
             name: 'Xiaomi Mi 11',
@@ -253,7 +253,7 @@ async function addData() {
             description:
                 'The Xiaomi Mi 11 offers flagship-level features at a more affordable price point.',
             stock: 25,
-            stripePriceId: 'price_1OVMFdBDqOJUyBhU8qMn4SgK',
+            stripePriceId: 'price_1OZL4JBDqOJUyBhUi3MGHq7I',
         },
         {
             name: 'Sony Xperia 1 III',
@@ -262,7 +262,7 @@ async function addData() {
             description:
                 'The Sony Xperia 1 III is a multimedia powerhouse with a 4K display and exceptional audio quality.',
             stock: 10,
-            stripePriceId: 'price_1OVMFdBDqOJUyBhU8qMn4SgK',
+            stripePriceId: 'price_1OZL4hBDqOJUyBhUvKNDKfmi',
         },
         {
             name: 'LG Velvet 5G',
@@ -271,7 +271,7 @@ async function addData() {
             description:
                 'The LG Velvet 5G offers 5G connectivity and a sleek design with a waterdrop notch display.',
             stock: 30,
-            stripePriceId: 'price_1OVMFdBDqOJUyBhU8qMn4SgK',
+            stripePriceId: 'price_1OZL54BDqOJUyBhUK3maPDmI',
         },
         {
             name: 'Asus ROG Phone 5',
@@ -280,7 +280,7 @@ async function addData() {
             description:
                 'The Asus ROG Phone 5 is a gaming-focused smartphone with a high-refresh-rate AMOLED display.',
             stock: 20,
-            stripePriceId: 'price_1OVMFdBDqOJUyBhU8qMn4SgK',
+            stripePriceId: 'price_1OZL5QBDqOJUyBhUKBn7jVFb',
         },
     ]
     // Additional Products for Headphones
@@ -292,7 +292,7 @@ async function addData() {
             description:
                 'The Sony WH-1000XM4 are premium noise-canceling headphones with excellent sound quality.',
             stock: 40,
-            stripePriceId: 'price_1OVMFdBDqOJUyBhU8qMn4SgK',
+            stripePriceId: 'price_1OZL5vBDqOJUyBhUzyHWCY6H',
         },
         {
             name: 'Bose QuietComfort 35 II',
@@ -301,7 +301,7 @@ async function addData() {
             description:
                 'The Bose QuietComfort 35 II are comfortable and effective noise-canceling headphones.',
             stock: 35,
-            stripePriceId: 'price_1OVMFdBDqOJUyBhU8qMn4SgK',
+            stripePriceId: 'price_1OZL6EBDqOJUyBhU6GP34p1o',
         },
         {
             name: 'Sennheiser HD 660 S',
@@ -310,7 +310,7 @@ async function addData() {
             description:
                 'The Sennheiser HD 660 S are open-back headphones with a focus on audiophile-grade sound quality.',
             stock: 20,
-            stripePriceId: 'price_1OVMFdBDqOJUyBhU8qMn4SgK',
+            stripePriceId: 'price_1OZL6XBDqOJUyBhUndukbtAc',
         },
         {
             name: 'Beats Studio3 Wireless',
@@ -319,7 +319,7 @@ async function addData() {
             description:
                 'The Beats Studio3 Wireless headphones offer a stylish design and powerful bass-driven sound.',
             stock: 30,
-            stripePriceId: 'price_1OVMFdBDqOJUyBhU8qMn4SgK',
+            stripePriceId: 'price_1OZL6tBDqOJUyBhUHL98xuho',
         },
         {
             name: 'Audio-Technica ATH-M50x',
@@ -328,7 +328,7 @@ async function addData() {
             description:
                 'The Audio-Technica ATH-M50x are studio-quality headphones known for their accuracy and comfort.',
             stock: 50,
-            stripePriceId: 'price_1OVMFdBDqOJUyBhU8qMn4SgK',
+            stripePriceId: 'price_1OZL7GBDqOJUyBhUASBlLTLI',
         },
         {
             name: 'JBL Quantum 800',
@@ -337,7 +337,7 @@ async function addData() {
             description:
                 'The JBL Quantum 800 are gaming headphones with active noise cancellation and a detachable microphone.',
             stock: 25,
-            stripePriceId: 'price_1OVMFdBDqOJUyBhU8qMn4SgK',
+            stripePriceId: 'price_1OZL7hBDqOJUyBhU56gIYmw0',
         },
         {
             name: 'Beyerdynamic DT 990 Pro',
@@ -346,7 +346,7 @@ async function addData() {
             description:
                 'The Beyerdynamic DT 990 Pro are open-back headphones favored by professionals for mixing and mastering.',
             stock: 15,
-            stripePriceId: 'price_1OVMFdBDqOJUyBhU8qMn4SgK',
+            stripePriceId: 'price_1OZL83BDqOJUyBhU1Ab7xsVq',
         },
         {
             name: 'Skullcandy Crusher Evo',
@@ -355,7 +355,7 @@ async function addData() {
             description:
                 'The Skullcandy Crusher Evo headphones offer adjustable bass and long-lasting battery life.',
             stock: 35,
-            stripePriceId: 'price_1OVMFdBDqOJUyBhU8qMn4SgK',
+            stripePriceId: 'price_1OZL8VBDqOJUyBhUmxr4ThSD',
         },
     ]
 
